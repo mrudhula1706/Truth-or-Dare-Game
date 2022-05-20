@@ -1,0 +1,131 @@
+import tkinter as tk
+from random import *
+from tkinter import *
+from tkinter import messagebox
+import datetime
+
+now = datetime.datetime.now()
+seed(now)
+
+dares = ["TAKE A SELFIE WITH A STRANGE",
+         "YELL OUT YOUR CURSH'S NAME ",
+         "EAT SOMETHING WITHOUT USING HANDS",
+         "SING WHAT YOU HERE!!!",
+         "SIP/TASTE OUR CHEF'S SPECIAL",
+         "PERFORM A DUET WITH YOUR OPPONENT",
+         "TRY TO MAKE YOUR OPPONENT LAUGH",
+         "WEAR A FUNNY ACCESSORY AND DO RAMP WALK",
+         "TRANSLATE THESE LYRICS INTO ENGLISH",
+         "CALL A FRIEND WHO COULDN'T COME AND TALK IN A WEIRD ACCENT UNTIL THEY GUESS WHO IT IS",
+         "LET US MAKE A SOCIAL MEDIA POST ON YOUR ACCOUNT",
+         "SING KARAOKE OF YOUR FAVOURITE SONG",
+         "SEND A MESSAGE AS 'THE PHONE ON AEROPLANE MODE IS FASTER THAN A CAR!!'TO YOUR RECENT CONTACT",
+         "START A CONVERSATION WITH STRANGER",
+         "DELIVER A DIALOGUE OF YOU FAVOURITE ACTOR",
+         "TRY NAATU NAATU STEP",
+         "READ THE LAST THING YOU SENT YOUR BEST FRIEND OR SIGNIFICANT OTHER OUT LOUD",
+         "LET YOUR OPPONENT GO THROUGH YOUR PHONE",
+         "IMITATE YOUR OPPONENT",
+         "PRANK CALL YOUR RELATIVE",
+         "PUT ON MAKE UP WITHOUT LOOKING IN THE MIRROR/CAMERA THEN LEAVE IT LIKE THAT FOR THE REST OF THE GAME",
+         "SHOW THE CRAZIEST/MOST EMBARRASSING PHOTO OF YOU ON YOUR PHONE",
+         "TASTE A LEMON PIECE",
+         "FLIRT WITH YOUR OPPONENT/SOMEONE AROUND",
+         "POST A PICTURE ON SOCIAL MEDIA IN WHICH YOU ARE UGLY AND YOUR FRIEND IS GOOD",
+         "HAND OVER YOUR PHONE TO ANOTHER PLAYER WHO CAN SEND A SINGLE TEXT SAYING ANYTHING THEY WANT TO ANYONE THEY WANT",
+         "IMITATE A YOUTUBER STAR UNTIL ANOTHER PLAYER GUESSES WHO YOU ARE PORTRAYING",
+         "READ OUT THE LAST FIVE THINGS YOU SEARCHED ON YOUR PHONE",
+
+         ]
+
+truths = ["WHAT IS YOUR BIGGEST FANTASY?",
+          "WHO ARE YOU MOST JEALOUS OF?",
+          "HAVE YOU EVER FARTED AND BLAMED IT ON SOME ONE ELSE?",
+          "WHAT WILL YOU DO IF YOU ARE IN A GRAVE YARD?",
+          "IF YOU EVER WANT TO SWAP YOUR LIFE WITH ANY OF YOU FRIEND,WHO WOULD THAT BE?WHY?",
+          "SHARE A AWKWARD EXPERIENCE",
+          "WHAT WAS THE WEIRDEST LIE YOU EVER LIED JUST TO GET CAUGHT",
+          "WHAT IS YOUR FAVOURITE MOVIE YOU ARE EMBARRASSED TO ADMIT ITS YOUR FAVOURITE?",
+          "HAVE YOU EVER CONVINCED A PERSON A FAKE FACT AS REAL?",
+          "IF YOU COULD BE INVISIBLE, WHAT'S THE FIRST THING YOU DO?",
+          "WHO IS THE LAST PERSON YOU STALKED ON SOCIAL MEDIA?",
+          "WHAT IS TH MOST EMBARRASSING THING YOU DID ON A DATE?",
+          "WHAT ANIMAL DO YOU THINK YOU LOOK LIKE THE MOST?",
+          "WHAT IS THE MOST EMBARRASSING THING YOU'VE SECRETLY DONE TO GET A CRUSH'S ATTENTION?",
+          "HAVE YOU EVER HAD A PARANORMAL EXPERIENCE?",
+          "WHEN HAVE YOU BEEN IN THE MOST TROUBLE IN SCHOOL/COLLEGE?",
+          "WHAT IS SOMETHING YOU DO WHEN YOU ARE ALONE?",
+          "YOUR NICKNAME FOR WHICH YOU ARE MOST EMBARRASSED WHEN CALLED IN PUBLIC",
+          "WHAT IS THE CRAZIEST THING YOU DID IN PUBLIC TRANSPORT?",
+          "WHAT IS SOMETHING YOU LOVE TO DO WITH YOUR FRIENDS THAT YOU'D NEVER DO IN FRONT OF YOUR PARTNER?",
+          "WHAT IS THE CHILDISH THING YOU STILL DO",
+          "WHAT IS THE SECRET YOU HAD AS A CHILD THAT YOU NEVER TOLD YOUR PARENTS?",
+          "WHAT IS THE FIRST THING YOU WOULD DO IF YOU WOKE UP ONE DAY AS OPPOSITE GENDER?",
+          "WHAT'S YOUR BIGGEST REGRET?",
+          "WHAT EXCUSE YOU MOST USE TO CANCEL YOUR PLANS WITH YOUR FRIENDS?",
+          "WHAT WAS YOUR FAVORITE CHILDHOOD SHOW?",
+          "IF YOU COULD ONLY ACCOMPLISH THREE THINGS IN LIFE,WHAT WOULD THAT BE?",
+          "WHAT'S THE MOST RANDOM THING YOU ARE CARRYING RIGHT NOW?",
+          "WHEN HAVE YOU BEEN IN THE MOST TROUBLE IN SCHOOL?"
+          ]
+
+
+def dare():
+    dareoutput = choice(dares)
+    print(dareoutput)
+
+
+def truth():
+    truthoutput = choice(truths)
+    print(truthoutput)
+
+def display1():
+    truthdisplay = messagebox.showinfo("TRUTH", choice(truths))
+    print(truthdisplay)
+
+def display2():
+    daredisplay = messagebox.showinfo("DARE", choice(dares))
+    print(daredisplay)
+
+root = tk.Tk()
+root.geometry("1040x400")
+root.title("TRUTH OR DARE")
+root.configure(bg="black")
+label = tk.Label(root, text="STANFEST 2022", fg="light blue", bg="black", font=("arial", 44, "bold")).pack()
+label = tk.Label(root, text="Welcome to Entertainment zone", fg="orange", bg="black", font=('arial', 35, 'bold')).pack()
+label = tk.Label(root, text="DESTINY BY DICE", fg="cyan", bg="black", font=('arial', 40, 'bold')).pack()
+frame = tk.Frame(root, highlightbackground="acyan")
+
+m1 = PanedWindow()
+m1.pack(fill=BOTH, expand=1)
+
+m2 = PanedWindow(m1, orient=VERTICAL)
+m1.add(m2)
+
+label = tk.Label(m2, text="TRUTH OR DARE", font=('helvetica', 45, 'bold'), fg="yellow", bg="black", borderwidth=3)
+m2.add(label)
+frame.pack()
+
+
+
+button = tk.Button(frame, text="Truth", fg='black', command=display1, font=('arial', 30, 'italic'),
+                   highlightbackground='green', relief=RAISED, wraplength=-3, borderwidth=20)
+button.config(height=6, width=20)
+button.pack(side=tk.LEFT)
+
+DareButton = tk.Button(frame, text="Dare", fg='black', command=display2, font=('arial', 30, 'italic'),
+                       highlightbackground='red', relief=RAISED, wraplength=-3, borderwidth=20)
+DareButton.config(height=6, width=20)
+DareButton.pack(side=tk.RIGHT)
+
+stopButton = tk.Button(frame, text="close", width=20, height=6, command=root.destroy,
+                       font=('arial', 30, 'italic'), relief=RAISED, borderwidth=20, highlightbackground="yellow")
+stopButton.pack(side=tk.BOTTOM)
+
+
+
+
+
+
+mainloop()
+root.mainloop()
